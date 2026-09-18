@@ -139,8 +139,22 @@
 
 <script>
     const allWeeksData = {
+        "week3": {
+            title: "Week 3 (本週最新)",
+            words: [
+                { article: "der", word: "Pfirsich", plural: "-e", pos: "m.", detail: "桃子", collo: "einen Pfirsich essen (吃一顆桃子)", exampleDe: "Der <span class='highlight'>Pfirsich</span> ist süß und lecker.", exampleZh: "這個桃子又甜又好吃。" },
+                { article: "die", word: "Backe", plural: "-n", pos: "f.", detail: "臉頰", collo: "rote Backen haben (有紅潤的臉頰)", exampleDe: "Das Kind hat rote <span class='highlight'>Backen</span>.", exampleZh: "這個小孩有紅潤的臉頰。" },
+                { article: "", word: "schlucken", plural: "", pos: "v.", detail: "吞下；咽下", collo: "Wasser schlucken (吞下水 / 喝水)", exampleDe: "Ich <span class='highlight'>schlucke</span> die Medizin mit Wasser.", exampleZh: "我配水服下（吞下）藥物。" },
+                { article: "die", word: "Laune", plural: "-n", pos: "f.", detail: "心情；情緒", collo: "gute Laune haben (心情好)", exampleDe: "Heute habe ich gute <span class='highlight'>Laune</span>!", exampleZh: "我今天心情很好！" },
+                { article: "", word: "versunken", plural: "", pos: "adj.", detail: "沉浸的；專心致志的", collo: "in ein Buch versunken sein (沉浸在一本書中)", exampleDe: "Er ist in ein Buch <span class='highlight'>versunken</span>.", exampleZh: "他正沉浸在一本書中。" }
+            ],
+            patterns: [
+                { pattern: "Ich habe + Akk. / Ich habe keinen/keine/kein + Akk.", detail: "我有…… / 我沒有……（表達持有與否定）", exampleDe: "Ich habe <span class='highlight'>Zeit</span>, aber er hat <span class='highlight'>keine Zeit</span>.", exampleZh: "我有時間，但他沒有時間。" },
+                { pattern: "Was isst/trinkst du gern? — Ich esse/trinke gern + Akk.", detail: "你喜歡吃/喝什麼？ — 我喜歡吃/喝……（詢問與表達喜好）", exampleDe: "Was trinkst du gern? — Ich trinke gern <span class='highlight'>Kaffee</span>.", exampleZh: "你喜歡喝什麼？ — 我喜歡喝咖啡。" }
+            ]
+        },
         "week2": {
-            title: "Week 2 (本週最新)",
+            title: "Week 2 (過往內容)",
             words: [
                 { article: "der", word: "Apfel", plural: "-¨", pos: "m.", detail: "蘋果", collo: "einen Apfel essen (吃蘋果)", exampleDe: "Ich esse jeden Tag einen <span class='highlight'>Apfel</span>.", exampleZh: "我每天吃一顆蘋果。" },
                 { article: "die", word: "Zeitung", plural: "-en", pos: "f.", detail: "報紙", collo: "Zeitung lesen (讀報紙)", exampleDe: "Er liest morgens die <span class='highlight'>Zeitung</span>.", exampleZh: "他早上會讀報紙。" },
