@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🇩🇪 Lernen wir jede Woche Deutsch!</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, 'Microsoft JhengHei', sans-serif;
+            background-color: #FFFDF0; /* 淺黃色背景 */
+            color: #1A1A1A; /* 黑色文字 */
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(128, 0, 32, 0.08);
+            border: 1px solid #F5E6CA;
+        }
+
+        h1 {
+            color: #800020; /* 酒紅色標題 */
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        /* 控制列：選單區塊 */
+        .controls-bar {
+            background-color: #800020; /* 酒紅色區塊 */
+            color: #FFFFFF;
+            padding: 15px 20px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .controls-bar label {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .week-select {
+            padding: 8px 12px;
+            font-size: 1em;
+            border-radius: 6px;
+            border: 1px solid #CCC;
+            background-color: #FFFFFF;
+            color: #1A1A1A;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .section-title {
+            border-bottom: 2px solid #800020;
+            padding-bottom: 8px;
+            color: #800020;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #FFFCF7;
+            border-left: 5px solid #800020;
+            margin: 15px 0;
+            padding: 18px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .word-title {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #1A1A1A;
+        }
+
+        .highlight {
+            color: #800020;
+            font-weight: bold;
+        }
+
+        .gender-tag {
+            background-color: #800020;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-right: 5px;
+        }
+
+        .collo-box {
+            margin-top: 6px;
+            font-size: 0.92em;
+            color: #555;
+            background-color: #F7F3EB;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .example-box {
+            margin-top: 10px;
+            padding-top: 8px;
+            border-top: 1px dashed #E5D9C5;
+            color: #333333;
+        }
+
+        .example-de { font-weight: 500; }
+        .example-zh { color: #666666; font-size: 0.95em; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🇩🇪 Lernen wir jede Woche Deutsch!</h1>
+    
+    <!-- 週次切換區塊 -->
+    <div class="controls-bar">
+        <label for="week-select">📅 選擇學習週次：</label>
+        <select id="week-select" class="week-select" onchange="changeWeek(this.value)">
+        </select>
+    </div>
+
+    <h2 class="section-title">📌 本週核心單字 (5 個)</h2>
+    <div id="words-container"></div>
+
+    <h2 class="section-title">💬 本週重要句型 (2 個)</h2>
+    <div id="patterns-container"></div>
+</div>
+
+<script>
+    const allWeeksData = {
+        "week2": {
+            title: "Week 2 (本週最新)",
+            words: [
+                { article: "der", word: "Apfel", plural: "-¨", pos: "m.", detail: "蘋果", collo: "einen Apfel essen (吃蘋果)", exampleDe: "Ich esse jeden Tag einen <span class='highlight'>Apfel</span>.", exampleZh: "我每天吃一顆蘋果。" },
+                { article: "die", word: "Zeitung", plural: "-en", pos: "f.", detail: "報紙", collo: "Zeitung lesen (讀報紙)", exampleDe: "Er liest morgens die <span class='highlight'>Zeitung</span>.", exampleZh: "他早上會讀報紙。" },
+                { article: "das", word: "Buch", plural: "-¨er", pos: "n.", detail: "書本", collo: "ein Buch lesen (看書)", exampleDe: "Das <span class='highlight'>Buch</span> ist sehr interessant.", exampleZh: "這本書非常有趣。" },
+                { article: "", word: "verstehen", plural: "", pos: "v.", detail: "理解、明白", collo: "gut verstehen (很好理解)", exampleDe: "Ich <span class='highlight'>verstehe</span> die Frage nicht.", exampleZh: "我不理解這個問題。" },
+                { article: "", word: "pünktlich", plural: "", pos: "adj.", detail: "準時的", collo: "pünktlich kommen (準時到達)", exampleDe: "Der Zug kommt heute <span class='highlight'>pünktlich</span> an.", exampleZh: "火車今天準時到達。" }
+            ],
+            patterns: [
+                { pattern: "Ich möchte gerne + Akk. + haben / bestellen.", detail: "我想點／想要……（禮貌表達）", exampleDe: "Ich möchte gerne <span class='highlight'>einen Kaffee</span> haben.", exampleZh: "我想來一杯咖啡。" },
+                { pattern: "Wie viel kostet + Nom. ?", detail: "請問……多少錢？", exampleDe: "Wie viel kostet <span class='highlight'>das Buch</span>?", exampleZh: "請問這本書多少錢？" }
+            ]
+        },
+        "week1": {
+            title: "Week 1 (過往內容)",
+            words: [
+                { article: "der", word: "Kaffee", plural: "-s", pos: "m.", detail: "咖啡", collo: "Kaffee trinken (喝咖啡)", exampleDe: "Der <span class='highlight'>Kaffee</span> ist heiß.", exampleZh: "咖啡很熱。" },
+                { article: "die", word: "Milch", plural: "", pos: "f.", detail: "牛奶", collo: "frische Milch (新鮮牛奶)", exampleDe: "Ich trinke gern <span class='highlight'>Milch</span>.", exampleZh: "我喜歡喝牛奶。" },
+                { article: "das", word: "Wasser", plural: "", pos: "n.", detail: "水", collo: "ein Glas Wasser (一杯水)", exampleDe: "Ein Glas <span class='highlight'>Wasser</span>, bitte.", exampleZh: "請給我一杯水。" },
+                { article: "", word: "trinken", plural: "", pos: "v.", detail: "喝", collo: "etwas trinken (喝點東西)", exampleDe: "Was <span class='highlight'>trinkst</span> du?", exampleZh: "你喝什麼？" },
+                { article: "", word: "lecker", plural: "", pos: "adj.", detail: "美味的", collo: "sehr lecker (非常美味)", exampleDe: "Das Essen ist sehr <span class='highlight'>lecker</span>.", exampleZh: "這食物很好吃。" }
+            ],
+            patterns: [
+                { pattern: "Ich heiße + 名字", detail: "我的名字叫作……", exampleDe: "Ich heiße <span class='highlight'>Anna</span>.", exampleZh: "我叫安娜。" },
+                { pattern: "Woher kommen Sie?", detail: "您來自哪裡？（尊稱）", exampleDe: "Woher kommen Sie? - Ich komme aus <span class='highlight'>Taiwan</span>.", exampleZh: "您來自哪裡？我來自台灣。" }
+            ]
+        }
+    };
+
+    // 初始化下拉選單
+    const selectEl = document.getElementById("week-select");
+    Object.keys(allWeeksData).forEach(key => {
+        const opt = document.createElement("option");
+        opt.value = key;
+        opt.innerText = allWeeksData[key].title;
+        selectEl.appendChild(opt);
+    });
+
+    // 渲染特定週次內容
+    function changeWeek(weekKey) {
+        const data = allWeeksData[weekKey];
+
+        // 渲染單字
+        const wordsDiv = document.getElementById("words-container");
+        wordsDiv.innerHTML = "";
+        data.words.forEach(item => {
+            const articleTag = item.article ? `<span class="gender-tag">${item.article}</span>` : '';
+            const pluralInfo = item.plural ? ` <small style="color:#666;">(Pl. ${item.plural})</small>` : '';
+            const colloInfo = item.collo ? `<div class="collo-box">🔗 常用搭配：${item.collo}</div>` : '';
+
+            wordsDiv.innerHTML += `
+                <div class="card">
+                    <div>
+                        ${articleTag}
+                        <span class="word-title">${item.word}</span> ${pluralInfo}
+                        <span style="color:#666;">[${item.pos}]</span>：<strong>${item.detail}</strong>
+                    </div>
+                    ${colloInfo}
+                    <div class="example-box">
+                        <div class="example-de">💡 例句：${item.exampleDe}</div>
+                        <div class="example-zh">${item.exampleZh}</div>
+                    </div>
+                </div>`;
+        });
+
+        // 渲染句型
+        const patternsDiv = document.getElementById("patterns-container");
+        patternsDiv.innerHTML = "";
+        data.patterns.forEach(item => {
+            patternsDiv.innerHTML += `
+                <div class="card">
+                    <div class="word-title" style="color: #800020;">${item.pattern}</div>
+                    <div><strong>用法說明：</strong>${item.detail}</div>
+                    <div class="example-box">
+                        <div class="example-de">💡 例句：${item.exampleDe}</div>
+                        <div class="example-zh">${item.exampleZh}</div>
+                    </div>
+                </div>`;
+        });
+    }
+
+    // 預設載入最新一週
+    changeWeek(Object.keys(allWeeksData)[0]);
+</script>
+
+</body>
+</html>
