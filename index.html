@@ -139,57 +139,60 @@
 
 <script>
     const allWeeksData = {
-        const allWeeksData = {
-    "week4": {
-        title: "Week 4 (本週最新)",
-        ...
-    },
-    "week3": {
-        title: "Week 3 (過往內容)",
-        ...
-    },
-    ...
-};
+        "week4": {
+            title: "Week 4 (本週最新)",
+            words: [
+                { article: "", word: "einsam", plural: "", pos: "adj.", detail: "孤單的；寂寞的", collo: "sich einsam fühlen (感到孤單)", exampleDe: "Heute fühle ich mich ein bisschen einsam.", exampleZh: "我今天感到有一點孤單。" },
+                { article: "der", word: "Vorhang", plural: "-¨e", pos: "m.", detail: "窗簾；幕布", collo: "den Vorhang zumachen (把窗簾拉上)", exampleDe: "Der Vorhang ist gelb und schön.", exampleZh: "這個窗簾是黃色的，很漂亮。" },
+                { article: "der", word: "Zuschauer", plural: "-", pos: "m.", detail: "觀眾", collo: "viele Zuschauer haben (有很多觀眾)", exampleDe: "Die Zuschauer sind sehr glücklich.", exampleZh: "觀眾們非常開心。" },
+                { article: "der", word: "Berg", plural: "-e", pos: "m.", detail: "山；山峰", collo: "auf den Berg steigen (爬山)", exampleDe: "Der Berg ist sehr hoch.", exampleZh: "這座山很高。" },
+                { article: "die", word: "Wimper", plural: "-n", pos: "f.", detail: "睫毛", collo: "lange Wimpern haben (有長睫毛)", exampleDe: "Sie hat sehr lange Wimpern.", exampleZh: "她有很長的睫毛。" }
+            ],
+            patterns: [
+                { pattern: "Wenn es um + Akk. geht, ...", detail: "當談到……、如果是關於……（表達主題討論）", exampleDe: "Wenn es um Sprachen geht, lerne ich gern Deutsch.", exampleZh: "當談到語言時，我喜歡學德文。" },
+                { pattern: "Wie spät ist es? / Es ist ... Uhr.", detail: "現在幾點了？ / 現在是……點。（時間表達）", exampleDe: "Wie spät ist es? — Es ist acht Uhr.", exampleZh: "現在幾點了？ — 現在是八點。" }
+            ]
+        },
         "week3": {
             title: "Week 3 (過往內容)",
             words: [
-                { article: "der", word: "Pfirsich", plural: "-e", pos: "m.", detail: "桃子", collo: "einen Pfirsich essen (吃一顆桃子)", exampleDe: "Der <span class='highlight'>Pfirsich</span> ist süß und lecker.", exampleZh: "這個桃子又甜又好吃。" },
-                { article: "die", word: "Backe", plural: "-n", pos: "f.", detail: "臉頰", collo: "rote Backen haben (有紅潤的臉頰)", exampleDe: "Das Kind hat rote <span class='highlight'>Backen</span>.", exampleZh: "這個小孩有紅潤的臉頰。" },
-                { article: "", word: "schlucken", plural: "", pos: "v.", detail: "吞下；咽下", collo: "Wasser schlucken (吞下水 / 喝水)", exampleDe: "Ich <span class='highlight'>schlucke</span> die Medizin mit Wasser.", exampleZh: "我配水服下（吞下）藥物。" },
-                { article: "die", word: "Laune", plural: "-n", pos: "f.", detail: "心情；情緒", collo: "gute Laune haben (心情好)", exampleDe: "Heute habe ich gute <span class='highlight'>Laune</span>!", exampleZh: "我今天心情很好！" },
-                { article: "", word: "versunken", plural: "", pos: "adj.", detail: "沉浸的；專心致志的", collo: "in ein Buch versunken sein (沉浸在一本書中)", exampleDe: "Er ist in ein Buch <span class='highlight'>versunken</span>.", exampleZh: "他正沉浸在一本書中。" }
+                { article: "der", word: "Pfirsich", plural: "-e", pos: "m.", detail: "桃子", collo: "einen Pfirsich essen (吃一顆桃子)", exampleDe: "Der Pfirsich ist süß und lecker.", exampleZh: "這個桃子又甜又好吃。" },
+                { article: "die", word: "Backe", plural: "-n", pos: "f.", detail: "臉頰", collo: "rote Backen haben (有紅潤的臉頰)", exampleDe: "Das Kind hat rote Backen.", exampleZh: "這個小孩有紅潤的臉頰。" },
+                { article: "", word: "schlucken", plural: "", pos: "v.", detail: "吞下；咽下", collo: "Wasser schlucken (吞下水 / 喝水)", exampleDe: "Ich schlucke die Medizin mit Wasser.", exampleZh: "我配水服下（吞下）藥物。" },
+                { article: "die", word: "Laune", plural: "-n", pos: "f.", detail: "心情；情緒", collo: "gute Laune haben (心情好)", exampleDe: "Heute habe ich gute Laune!", exampleZh: "我今天心情很好！" },
+                { article: "", word: "versunken", plural: "", pos: "adj.", detail: "沉浸的；專心致志的", collo: "in ein Buch versunken sein (沉浸在一本書中)", exampleDe: "Er ist in ein Buch versunken.", exampleZh: "他正沉浸在一本書中。" }
             ],
             patterns: [
-                { pattern: "Ich habe + Akk. / Ich habe keinen/keine/kein + Akk.", detail: "我有…… / 我沒有……（表達持有與否定）", exampleDe: "Ich habe <span class='highlight'>Zeit</span>, aber er hat <span class='highlight'>keine Zeit</span>.", exampleZh: "我有時間，但他沒有時間。" },
-                { pattern: "Was isst/trinkst du gern? — Ich esse/trinke gern + Akk.", detail: "你喜歡吃/喝什麼？ — 我喜歡吃/喝……（詢問與表達喜好）", exampleDe: "Was trinkst du gern? — Ich trinke gern <span class='highlight'>Kaffee</span>.", exampleZh: "你喜歡喝什麼？ — 我喜歡喝咖啡。" }
+                { pattern: "Ich habe + Akk. / Ich habe keinen/keine/kein + Akk.", detail: "我有…… / 我沒有……（表達持有與否定）", exampleDe: "Ich habe Zeit, aber er hat keine Zeit.", exampleZh: "我有時間，但他沒有時間。" },
+                { pattern: "Was isst/trinkst du gern? — Ich esse/trinke gern + Akk.", detail: "你喜歡吃/喝什麼？ — 我喜歡吃/喝……（詢問與表達喜好）", exampleDe: "Was trinkst du gern? — Ich trinke gern Kaffee.", exampleZh: "你喜歡喝什麼？ — 我喜歡喝咖啡。" }
             ]
         },
         "week2": {
             title: "Week 2 (過往內容)",
             words: [
-                { article: "der", word: "Apfel", plural: "-¨", pos: "m.", detail: "蘋果", collo: "einen Apfel essen (吃蘋果)", exampleDe: "Ich esse jeden Tag einen <span class='highlight'>Apfel</span>.", exampleZh: "我每天吃一顆蘋果。" },
-                { article: "die", word: "Zeitung", plural: "-en", pos: "f.", detail: "報紙", collo: "Zeitung lesen (讀報紙)", exampleDe: "Er liest morgens die <span class='highlight'>Zeitung</span>.", exampleZh: "他早上會讀報紙。" },
-                { article: "das", word: "Buch", plural: "-¨er", pos: "n.", detail: "書本", collo: "ein Buch lesen (看書)", exampleDe: "Das <span class='highlight'>Buch</span> ist sehr interessant.", exampleZh: "這本書非常有趣。" },
-                { article: "", word: "verstehen", plural: "", pos: "v.", detail: "理解、明白", collo: "gut verstehen (很好理解)", exampleDe: "Ich <span class='highlight'>verstehe</span> die Frage nicht.", exampleZh: "我不理解這個問題。" },
-                { article: "", word: "pünktlich", plural: "", pos: "adj.", detail: "準時的", collo: "pünktlich kommen (準時到達)", exampleDe: "Der Zug kommt heute <span class='highlight'>pünktlich</span> an.", exampleZh: "火車今天準時到達。" }
+                { article: "der", word: "Apfel", plural: "-¨", pos: "m.", detail: "蘋果", collo: "einen Apfel essen (吃蘋果)", exampleDe: "Der Apfel ist rot.", exampleZh: "這個蘋果是紅色的。" },
+                { article: "die", word: "Zeitung", plural: "-en", pos: "f.", detail: "報紙", collo: "Zeitung lesen (讀報紙)", exampleDe: "Ich lese die Zeitung.", exampleZh: "我在讀報紙。" },
+                { article: "das", word: "Buch", plural: "-¨er", pos: "n.", detail: "書本", collo: "ein Buch lesen (看書)", exampleDe: "Das Buch ist interessant.", exampleZh: "這本書很有趣。" },
+                { article: "", word: "verstehen", plural: "", pos: "v.", detail: "理解、明白", collo: "gut verstehen (很好理解)", exampleDe: "Ich verstehe Deutsch.", exampleZh: "我懂德文。" },
+                { article: "", word: "pünktlich", plural: "", pos: "adj.", detail: "準時的", collo: "pünktlich kommen (準時到達)", exampleDe: "Er ist immer pünktlich.", exampleZh: "他總是很準時。" }
             ],
             patterns: [
-                { pattern: "Ich möchte gerne + Akk. + haben / bestellen.", detail: "我想點／想要……（禮貌表達）", exampleDe: "Ich möchte gerne <span class='highlight'>einen Kaffee</span> haben.", exampleZh: "我想來一杯咖啡。" },
-                { pattern: "Wie viel kostet + Nom. ?", detail: "請問……多少錢？", exampleDe: "Wie viel kostet <span class='highlight'>das Buch</span>?", exampleZh: "請問這本書多少錢？" }
+                { pattern: "Ich möchte gerne + Akk. + haben / bestellen.", detail: "我想點/想要…… (禮貌表達)", exampleDe: "Ich möchte gerne einen Kaffee haben.", exampleZh: "我想要一杯咖啡。" },
+                { pattern: "Wie viel kostet + Nom. ?", detail: "請問……多少錢？", exampleDe: "Wie viel kostet das Buch?", exampleZh: "這本書多少錢？" }
             ]
         },
         "week1": {
             title: "Week 1 (過往內容)",
             words: [
-                { article: "der", word: "Kaffee", plural: "-s", pos: "m.", detail: "咖啡", collo: "Kaffee trinken (喝咖啡)", exampleDe: "Der <span class='highlight'>Kaffee</span> ist heiß.", exampleZh: "咖啡很熱。" },
-                { article: "die", word: "Milch", plural: "", pos: "f.", detail: "牛奶", collo: "frische Milch (新鮮牛奶)", exampleDe: "Ich trinke gern <span class='highlight'>Milch</span>.", exampleZh: "我喜歡喝牛奶。" },
-                { article: "das", word: "Wasser", plural: "", pos: "n.", detail: "水", collo: "ein Glas Wasser (一杯水)", exampleDe: "Ein Glas <span class='highlight'>Wasser</span>, bitte.", exampleZh: "請給我一杯水。" },
-                { article: "", word: "trinken", plural: "", pos: "v.", detail: "喝", collo: "etwas trinken (喝點東西)", exampleDe: "Was <span class='highlight'>trinkst</span> du?", exampleZh: "你喝什麼？" },
-                { article: "", word: "lecker", plural: "", pos: "adj.", detail: "美味的", collo: "sehr lecker (非常美味)", exampleDe: "Das Essen ist sehr <span class='highlight'>lecker</span>.", exampleZh: "這食物很好吃。" }
+                { article: "der", word: "Tisch", plural: "-e", pos: "m.", detail: "桌子", collo: "am Tisch sitzen (坐在桌旁)", exampleDe: "Der Tisch ist groß.", exampleZh: "這張桌子很大。" },
+                { article: "die", word: "Sonne", plural: "-", pos: "f.", detail: "太陽", collo: "die Sonne scheint (陽光明媚)", exampleDe: "Die Sonne scheint heute.", exampleZh: "今天陽光明媚。" },
+                { article: "das", word: "Haus", plural: "-¨er", pos: "n.", detail: "房子", collo: "nach Hause gehen (回家)", exampleDe: "Das Haus ist schön.", exampleZh: "這棟房子很漂亮。" },
+                { article: "", word: "lernen", plural: "", pos: "v.", detail: "學習", collo: "Deutsch lernen (學德文)", exampleDe: "Ich lerne Deutsch.", exampleZh: "我在學德文。" },
+                { article: "", word: "schön", plural: "", pos: "adj.", detail: "美麗的、美好的", collo: "einen schönen Tag haben (祝有美好的一天)", exampleDe: "Das Wetter ist schön.", exampleZh: "天氣很好。" }
             ],
             patterns: [
-                { pattern: "Ich heiße + 名字", detail: "我的名字叫作……", exampleDe: "Ich heiße <span class='highlight'>Anna</span>.", exampleZh: "我叫安娜。" },
-                { pattern: "Woher kommen Sie?", detail: "您來自哪裡？（尊稱）", exampleDe: "Woher kommen Sie? - Ich komme aus <span class='highlight'>Taiwan</span>.", exampleZh: "您來自哪裡？我來自台灣。" }
+                { pattern: "Wie heißt du? — Ich heiße ...", detail: "你叫什麼名字？ — 我叫……", exampleDe: "Wie heißt du? — Ich heiße Anke.", exampleZh: "你叫什麼名字？ — 我叫 Anke。" },
+                { pattern: "Woher kommst du? — Ich komme aus ...", detail: "你來自哪裡？ — 我來自……", exampleDe: "Woher kommst du? — Ich komme aus Taiwan.", exampleZh: "你來自哪裡？ — 我來自台灣。" }
             ]
         }
     };
